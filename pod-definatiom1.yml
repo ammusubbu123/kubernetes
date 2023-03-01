@@ -1,0 +1,17 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mysql-pod
+  labels:
+    type: database
+    author: Amaleswari
+spec:
+  containers:
+    - name: mydatabase
+      image: mysql:5
+      env:
+        - name: MYSQL_ROOT_PASSWORD
+          value: ammu
+           
+...

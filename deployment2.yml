@@ -1,0 +1,27 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tomee-deployment
+  labels:
+    type: qaserver
+    author: Ammu
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      type: qaserver
+      author: Ammu
+  template:
+    metadata:
+      name: tomee-pod
+      labels: 
+         type: qaserver
+         author: Ammu
+    spec:
+      containers:
+        - name: mytomee
+          image: tomcat
+...
+
+

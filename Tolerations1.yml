@@ -1,0 +1,30 @@
+---
+  apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    name: ubuntu-deployment
+    labels:
+      server: linux
+      owner: Vennela
+  spec:
+    replicas: 3
+    selector:
+       matchLabels:
+         server: linux
+         owner: Vennela
+    template:
+      metadata:
+        name: ubuntu-pod
+        labels:
+          server: linux
+          owner: Vennela
+      spec:
+        containers:
+          - name: myubuntu
+            image: ubuntu
+        tolerations:
+          - key: slave3
+            value: venni
+            effect: NoSchedule
+            operator: Equal
+...

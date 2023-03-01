@@ -1,0 +1,33 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+  labels:
+    type: webserver
+    author: Ammu
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      type: webserver
+      author: Ammu
+  template:
+    metadata:
+      labels:
+        type: webserver
+        author: Ammu
+    spec:
+      containers:
+        - name: mynginx
+          image: nginx
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+              - matchExpressions:
+                  - key: slave1
+                    operator: In
+                    values:
+                      - ammuu
+...

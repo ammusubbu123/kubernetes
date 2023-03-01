@@ -1,0 +1,20 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mypostgres
+  labels:
+    type: pod
+    author: Amaleswari
+spec:
+  containers:
+    - name: mypostgres
+      image: postgres
+      env:
+       - name: POSTGRES_PASSWORD
+         value: ammu
+       - name: POSTGRES_USER
+         value: subbu
+       - name: POSTGRES_DB
+         value: venni
+...

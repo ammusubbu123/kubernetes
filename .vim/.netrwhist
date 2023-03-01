@@ -1,0 +1,5 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =3
+let g:netrw_dirhist_3='/home/amaleswari_pulleti/helm/mytomcat/templates'
+let g:netrw_dirhist_2='/home/amaleswari_pulleti/helm/mytomcat'
+let g:netrw_dirhist_1='/home/amaleswari_pulleti/helm/mytomcat/templates'

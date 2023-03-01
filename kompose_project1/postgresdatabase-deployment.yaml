@@ -1,0 +1,32 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.18.0 (06a2e56)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: postgresdatabase
+  name: postgresdatabase
+spec:
+  replicas: 1
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        io.kompose.service: postgresdatabase
+    spec:
+      containers:
+      - env:
+        - name: POSTGRES_DB
+          value: VENNI
+        - name: POSTGRES_PASSWORD
+          value: AMMU
+        - name: POSTGRES_USER
+          value: SUNNU
+        image: postgres
+        name: postgresdatabase
+        resources: {}
+      restartPolicy: Always
+status: {}

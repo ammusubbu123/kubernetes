@@ -1,0 +1,44 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: php-deployment
+  labels:
+    type: coding-php
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      type: coding-php
+  template:
+    metadata:
+      name: php-pod
+      labels:
+        type: coding-php
+    spec:
+      containers:
+        - name: myphp
+          image: intelliqit/mynew
+          ports:
+            - containerPort: 80
+          resources:
+            requests:
+              cpu: "250m"
+            limits:
+              cpu: "500m"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: php-service
+  labels:
+    type: coding-php
+spec:
+  ports:
+    - targetPort: 80
+      port: 80
+  selector:
+    type: coding-php
+...
+
+

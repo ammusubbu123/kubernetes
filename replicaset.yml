@@ -1,0 +1,28 @@
+---
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: tomee-replicaset
+  labels:
+    type: prodserver
+    author: Ammu
+spec:
+  replicas: 3
+  selector:
+       matchLabels:
+           type: prodserver
+           author: Ammu
+  template:
+       metadata:   
+            name: tomee-pod
+            labels:
+              type: prodserver
+              author: Ammu
+       spec:
+          containers:
+            - name: tomee-pod
+              image: tomcat
+              ports:
+                - containerPort: 9090
+                  hostPort: 8080
+...

@@ -1,0 +1,29 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name:  wordpress-deployment
+  labels: 
+   type: database
+   author: Ammu 
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+       type: database
+       author: Ammu
+  template: 
+    metadata:
+       name: wordpres-pod
+       labels:
+         type: database
+         author: Ammu
+    spec:
+      containers:
+      - name: wordpres-pod
+        image: wordpres
+        ports:
+          - containerPort: 9090
+            hostPort: 80
+...
+              
